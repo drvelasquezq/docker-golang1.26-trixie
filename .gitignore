@@ -1,0 +1,5 @@
+root/*
+!root/.gitkeep
+
+projects/*
+!projects/.gitkeep

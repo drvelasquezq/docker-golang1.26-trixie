@@ -1,0 +1,15 @@
+services:
+  golang1.26:
+    image: drvelasquezq/golang1.26-trixie:latest
+    container_name: container-golang1.26-trixie
+    stdin_open: true   # equivale a docker run -i, Mantiene STDIN abierto
+    tty: true          # equivale a docker run -t, Mantiene STDIN abierto
+    volumes:
+      - ./projects:/projects
+      # para que cuando el contenedor se acceda con vscode directamente ya tenga las extensiones instaladas despues de la primer vez
+      - "./root/.vscode-server:/root/.vscode-server"
+      # GOPATH por defecto es /root/go, para que el contenedor tenga acceso a los paquetes instalados en el host
+      # - "./root/go:/root/go"
+    ports:
+      - "1323:1323"
+    command: /bin/bash
